@@ -4,6 +4,7 @@ import { PATH_DASHBOARD } from '../../../routes/paths';
 import Label from '../../../components/label';
 import Iconify from '../../../components/iconify';
 import SvgColor from '../../../components/svg-color';
+import { title } from 'src/_mock/assets';
 
 // ----------------------------------------------------------------------
 
@@ -12,6 +13,19 @@ const icon = (name) => (
 );
 
 const ICONS = {
+  invoice: icon('invoice'),
+  sale: icon('sale'),
+  category: icon('category'),
+  company: icon('company'),
+  sellers: icon('sellers'),
+  products: icon('products'),
+  customers: icon('customers'),
+  income: icon('income'),
+  expense: icon('expense'),
+  purchase: icon('purchase'),
+  stock: icon('stock'),
+  stockAdjust: icon('stockAdjust'),
+
   blog: icon('ic_blog'),
   cart: icon('ic_cart'),
   chat: icon('ic_chat'),
@@ -43,20 +57,75 @@ const navConfig = [
     subheader: 'general',
     items: [
       { title: 'dashboard', path: PATH_DASHBOARD.general.app, icon: ICONS.dashboard },
-      { title: 'sale', path: PATH_DASHBOARD.general.ecommerce, icon: ICONS.ecommerce },
-      { title: 'categories', path: PATH_DASHBOARD.general.categories, icon: ICONS.analytics },
-      { title: 'companies', path: PATH_DASHBOARD.general.companies, icon: ICONS.banking },
+      { title: 'sale', path: PATH_DASHBOARD.general.sale, icon: ICONS.sale },
+      { title: 'categories', path: PATH_DASHBOARD.general.categories, icon: ICONS.category },
+      { title: 'companies', path: PATH_DASHBOARD.general.companies, icon: ICONS.company },
 
-      { title: 'products', path: PATH_DASHBOARD.general.products, icon: ICONS.cart },
-      { title: 'vendors', path: PATH_DASHBOARD.general.vendors, icon: ICONS.dashboard },
+      { title: 'products', path: PATH_DASHBOARD.general.products, icon: ICONS.products },
+      { title: 'vendors', path: PATH_DASHBOARD.general.vendors, icon: ICONS.sellers },
+      { title: 'customers', path: PATH_DASHBOARD.general.customer, icon: ICONS.customers },
 
-      { title: 'customers', path: PATH_DASHBOARD.general.app, icon: ICONS.user },
-      { title: 'income', path: PATH_DASHBOARD.general.ecommerce, icon: ICONS.invoice },
-      { title: 'expense', path: PATH_DASHBOARD.general.analytics, icon: ICONS.invoice },
-      { title: 'purchase', path: PATH_DASHBOARD.general.banking, icon: ICONS.invoice },
-      { title: 'stock', path: PATH_DASHBOARD.general.booking, icon: ICONS.ecommerce },
-      { title: 'stock adjustment', path: PATH_DASHBOARD.general.file, icon: ICONS.ecommerce },
-      { title: 'report', path: PATH_DASHBOARD.general.file, icon: ICONS.file },
+      { title: 'income', 
+        path: PATH_DASHBOARD.income.root, 
+        icon: ICONS.income,
+        children: [
+          { title: 'new', path: PATH_DASHBOARD.income.new, icon: ICONS.invoice },
+          { title: 'history', path: PATH_DASHBOARD.income.history, icon: ICONS.invoice },
+          { title: 'types', path: PATH_DASHBOARD.income.types, icon: ICONS.invoice },
+        ],
+      },
+      { title: 'expense', 
+        path: PATH_DASHBOARD.expense.root, 
+        icon: ICONS.expense,
+        children: [
+          { title: 'new', path: PATH_DASHBOARD.expense.new, icon: ICONS.invoice },
+          { title: 'history', path: PATH_DASHBOARD.expense.history, icon: ICONS.invoice },
+          { title: 'types', path: PATH_DASHBOARD.expense.types, icon: ICONS.invoice },
+        ],
+      },
+      { title: 'purchase', 
+        path: PATH_DASHBOARD.purchase.root, 
+        icon: ICONS.purchase,
+        children: [
+          { title: 'order', path: PATH_DASHBOARD.purchase.order, },
+          { title: 'return', path: PATH_DASHBOARD.purchase.return, },
+        ],
+      },
+
+      { title: 'stock', path: PATH_DASHBOARD.general.stock, icon: ICONS.stock },
+      { title: 'stock adjustment', path: PATH_DASHBOARD.general.file, icon: ICONS.stockAdjust },
+
+      { title: 'report',
+         path: PATH_DASHBOARD.report.root, 
+         icon: ICONS.file ,
+         children: [
+          { title: 'customer Register', path:  PATH_DASHBOARD.report.customerRegister, },
+          { title: 'customer Sale Products', path: PATH_DASHBOARD.report.customerSaleProducts, },
+          { title: 'purchase History', path: PATH_DASHBOARD.report.purchaseHistory, },
+          { title: 'purchase Return History', path: PATH_DASHBOARD.report.purchaseReturnHistory, },
+          { title: 'product Purchase History', path: PATH_DASHBOARD.report.productPurchaseHistory, },
+          { title: 'sale History', path: PATH_DASHBOARD.report.saleHistory, },
+          { title: 'user Sale History', path: PATH_DASHBOARD.report.userSaleHistory, },
+          { title: 'shift Sale History', path: PATH_DASHBOARD.report.shiftSaleHistory, },
+          { title: 'category Sale History', path: PATH_DASHBOARD.report.categorySaleHistory , },
+          { title: 'product Sale History', path: PATH_DASHBOARD.report.productSaleHistory,}  ,
+          { title: 'sale History Category Product', path: PATH_DASHBOARD.report.saleHistoryCategoryProduct , },
+          { title: 'customer Sale History', path: PATH_DASHBOARD.report.customerSaleHistory, },
+          { title: 'sale Summary', path: PATH_DASHBOARD.report.saleSummary, },
+          { title: 'sale Return History', path: PATH_DASHBOARD.report.saleReturnHistory, },
+          { title: 'cash States', path: PATH_DASHBOARD.report.cashStates, },
+          { title: 'product Low Stock', path: PATH_DASHBOARD.report.productLowStock ,},
+
+          { title: 'All Stok', path: PATH_DASHBOARD.report.allStock, },
+          { title: 'Stock Expiry', path: PATH_DASHBOARD.report.stockExpiry, },
+          { title: 'Zero Stock', path: PATH_DASHBOARD.report.zeroStock, },
+          { title: 'Stock Adjustment', path: PATH_DASHBOARD.report.stockAdjustment, },
+          { title: 'Vendor Purchase History', path: PATH_DASHBOARD.report.vendorPurchaseHistory ,},
+          { title: 'Cash In Hand', path: PATH_DASHBOARD.report.cashInHand, },
+
+
+         ],
+        },
     ],
   },
 

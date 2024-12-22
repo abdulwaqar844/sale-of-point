@@ -45,13 +45,14 @@ import {
 // sections
 import { UserTableToolbar, UserTableRow } from '../../sections/@dashboard/category/list';
 import CustomersBalanceReport from 'src/sections/@dashboard/general/customers/CustomersBalanceReport';
+import CustomerTableToolbar from 'src/sections/@dashboard/general/customers/CustomerTableToolbar';
 
 
 // ----------------------------------------------------------------------
 
 const STATUS_OPTIONS = ['all', 'active', 'banned'];
 
-const ROLE_OPTIONS = [
+const AREA_OPTIONS = [
   'all',
   'ux designer',
   'full stack designer',
@@ -65,17 +66,18 @@ const ROLE_OPTIONS = [
 ];
 
 const TABLE_HEAD = [
-  { id: 'vendorName', label: 'Name', align: 'left' },
-  { id: 'vendorPhone', label: 'Phone', align: 'left' },
-  { id: 'vendorAdddress', label: 'Address', align: 'left' },
-  { id: 'vendorAccount', label: 'Account', align: 'left' },
+  { id: 'customerName', label: 'Name', align: 'left' },
+  { id: 'customerPhone', label: 'Phone', align: 'left' },
+  { id: 'customerCnic', label: 'CNIC', align: 'left' }, // Added CNIC column
+  { id: 'customerAdddress', label: 'Address', align: 'left' },
+  { id: 'customerAccount', label: 'Account', align: 'left' },
   { id: 'action', label: 'Action', align: 'left' },
 
 ];
 
 // ----------------------------------------------------------------------
 
-export default function VendorsPage() {
+export default function CustomerPage() {
   const {
     dense,
     page,
@@ -111,35 +113,33 @@ export default function VendorsPage() {
   const [showPreview, setShowPreview] = useState(false);
   const [open, setOpen] = useState(false);
 
-  const data= [
+  const data = [
     {
-      vendorName: "John Doe",
+      customerName: "John Doe",
       avatarUrl: "https://randomuser.me/api/portraits/men/1.jpg",
-      vendorAccount: "8579827",
-      role: "Software Engineer",
-      isVerified: true,
-      status: "Active",
-    
-      vendorAddress: "Innovative tech products and solutions",
-      vendorPhone: "9230393839",
+      customerAccount: "8579827",
+      customerPhone: "9230393839",
+      customerAddress: "Innovative tech products and solutions",
+      customerCnic: "12345-6789012-3", // CNIC
     },
     {
-      vendorName: "Jane Smith",
+      customerName: "Jane Smith",
       avatarUrl: "https://randomuser.me/api/portraits/women/2.jpg",
-      vendorPhone: "929393939",
-      vendorAccount: "298509",
-      vendorAddress: "Organic farming and produce",
-      categoryAction: "Explore",
+      customerAccount: "298509",
+      customerPhone: "929393939",
+      customerAddress: "Organic farming and produce",
+      customerCnic: "98765-4321098-7", // CNIC
     },
     {
-      vendorName: "Mike Brown",
+      customerName: "Mike Brown",
       avatarUrl: "https://randomuser.me/api/portraits/men/3.jpg",
-      vendorAccount: "2578",
-      vendorAddress: "Product Manager",
-
-      vendorPhone: "Contact",
+      customerAccount: "2578",
+      customerPhone: "Contact",
+      customerAddress: "Product Manager",
+      customerCnic: "54321-0987654-1", // CNIC
     },
-]
+  ];
+  
 
 const handleClose = () => {
     setOpen(false);
@@ -193,10 +193,10 @@ const handleOpen = () => {
 
 
   const handleEditRow = (id) => {
-    navigate(PATH_DASHBOARD.vendors.edit);
+    navigate(PATH_DASHBOARD.customer.edit);
   };
   const handleAccountRow = (id) => {
-    navigate(PATH_DASHBOARD.vendors.account);
+    navigate(PATH_DASHBOARD.customer.account);
   };
 
   const handleResetFilter = () => {
@@ -208,39 +208,79 @@ const handleOpen = () => {
   return (
     <>
       <Helmet>
-        <title> Vendor | Point of Sale UI</title>
+        <title> customer | Point of Sale UI</title>
       </Helmet>
 
       <Container maxWidth={themeStretch ? false : 'lg'}>
       <CustomBreadcrumbs
          links={[
-      { name: 'vendors', href: PATH_DASHBOARD.root },
+      { name: 'customer', href: PATH_DASHBOARD.root },
       ]}
         action={
-    <>
-      <Button
-        component={RouterLink}
-        to={PATH_DASHBOARD.vendors.new}
-        variant="contained"
-        startIcon={<Iconify icon="eva:plus-fill" />}
-      >
-        New
-      </Button>
-      
-      {/* New Button: Vendors Balance Report */}
+    <>  
+       {/* New Button: customers Balance Report */}
       <Button
         onClick={handleOpen}
         variant="contained"
         color="primary"
         sx={{ ml: 2 }} // Adds some space between the buttons
-        startIcon={<Iconify icon="eva:file-text-fill" />} // You can choose an appropriate icon
       >
-        Vendors Balance Report
+        customers Balance Report
         
       </Button>
+            {/* New Button: customers Balance Report */}
+            <Button
+        component={RouterLink}
+        to={PATH_DASHBOARD.customer.balancemessage}
+        variant="contained"
+        color="primary"
+        sx={{ ml: 2 }} // Adds some space between the buttons
+      >
+        Send Balance Message
+        
+      </Button>
+            {/* New Button: customers Balance Report */}
+            <Button
+                component={RouterLink}
+                to={PATH_DASHBOARD.customer.areas}
+        variant="contained"
+        color="primary"
+        sx={{ ml: 2 }} // Adds some space between the buttons
+      >
+        Areas
+        
+      </Button>
+            {/* New Button: customers Balance Report */}
+            <Button
+          component={RouterLink}
+          to={PATH_DASHBOARD.customer.import}
+        variant="contained"
+        color="primary"
+        sx={{ ml: 2 }} // Adds some space between the buttons
+      >
+        Import
+        
+      </Button>
+            {/* New Button: customers Balance Report */}
+            <Button
+         component={RouterLink}
+         to={PATH_DASHBOARD.customer.import}
+        variant="contained"
+        color="primary"
+        sx={{ ml: 2 }} // Adds some space between the buttons
+      >
+        Export
+        
+      </Button>
+      <Button
+        component={RouterLink}
+        to={PATH_DASHBOARD.customer.new}
+        variant="contained"
+        sx={{ ml: 2 }} // Adds some space between the buttons
 
-
-
+      >
+        New
+      </Button>
      </>
         }
      />
@@ -248,14 +288,15 @@ const handleOpen = () => {
 
         <Card>
     
-          <UserTableToolbar
+        <CustomerTableToolbar
             filterName={filterName}
             filterRole={filterRole}
-            optionsRole={ROLE_OPTIONS}
+            optionsRole={AREA_OPTIONS}
             onFilterName={handleFilterName}
             onFilterRole={handleFilterRole}
             onResetFilter={handleResetFilter}
           />
+          
 
           <TableContainer sx={{ position: 'relative', overflow: 'unset' }}>
           
@@ -275,10 +316,11 @@ const handleOpen = () => {
                 <TableBody>
   {dataInPage.map((row, index) => (
     <TableRow key={index}>
-      <TableCell>{row.vendorName}</TableCell>
-        <TableCell>{row.vendorPhone}</TableCell>
-        <TableCell>{row.vendorAddress}</TableCell>
-        <TableCell>{row.vendorAccount}</TableCell>
+      <TableCell>{row.customerName}</TableCell>
+        <TableCell>{row.customerPhone}</TableCell>
+        <TableCell>{row.customerCnic}</TableCell>
+        <TableCell>{row.customerAddress}</TableCell>
+        <TableCell>{row.customerAccount}</TableCell>
       <TableCell>
         <Button 
           variant="outlined" 
@@ -373,7 +415,7 @@ const handleOpen = () => {
 
           <Box sx={{ flexGrow: 1, height: '100%', overflow: 'hidden' }}>
             <PDFViewer width="100%" height="100%" style={{ border: 'none' }}>
-            <CustomersBalanceReport customers={data} />
+            <CustomersBalanceReport customer={data} />
             </PDFViewer>
           </Box>
         </Box>

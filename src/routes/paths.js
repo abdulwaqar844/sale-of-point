@@ -1,6 +1,8 @@
 // ----------------------------------------------------------------------
 
 
+
+
 function path(root, sublink) {
   return `${root}${sublink}`;
 }
@@ -45,17 +47,37 @@ export const PATH_DASHBOARD = {
   blank: path(ROOTS_DASHBOARD, '/blank'),
   general: {
     app: path(ROOTS_DASHBOARD, '/app'),
+    sale: path(ROOTS_DASHBOARD, '/sale'),
     ecommerce: path(ROOTS_DASHBOARD, '/ecommerce'),
     analytics: path(ROOTS_DASHBOARD, '/analytics'),
     booking: path(ROOTS_DASHBOARD, '/booking'),
     file: path(ROOTS_DASHBOARD, '/file'),
 
-    categories :    path(ROOTS_DASHBOARD, '/categories'),
+    categories : path(ROOTS_DASHBOARD, '/categories'),
     companies: path(ROOTS_DASHBOARD, '/manufacturer'),
     products: path(ROOTS_DASHBOARD, '/product'),
     vendors: path(ROOTS_DASHBOARD, '/vendors'),
+    customer: path(ROOTS_DASHBOARD, '/customer'),
+    
+    stock: path(ROOTS_DASHBOARD, '/stock'),
 
-
+  },
+  income: {
+    root: path(ROOTS_DASHBOARD, '/income'),
+    new: path(ROOTS_DASHBOARD, '/income/new'),
+    history: path(ROOTS_DASHBOARD, '/income/history'),
+    types: path(ROOTS_DASHBOARD, '/income/types'),
+  },
+  expense: {
+    root: path(ROOTS_DASHBOARD, '/expense'),
+    new: path(ROOTS_DASHBOARD, '/expense/new'),
+    history: path(ROOTS_DASHBOARD, '/expense/history'),
+    types: path(ROOTS_DASHBOARD, '/expense/types'),
+  },
+  purchase: {
+    root: path(ROOTS_DASHBOARD, '/purchase'),
+    order: path(ROOTS_DASHBOARD, '/purchase/order'),
+    return: path(ROOTS_DASHBOARD, '/purchase/return'),
   },
   mail: {
     root: path(ROOTS_DASHBOARD, '/mail'),
@@ -86,7 +108,45 @@ export const PATH_DASHBOARD = {
     root: path(ROOTS_DASHBOARD, '/vendors'),
     new: path(ROOTS_DASHBOARD, '/vendors/new'),
     edit: path(ROOTS_DASHBOARD, '/vendors/edit'),
+    account: path(ROOTS_DASHBOARD, '/vendors/account'),
 
+  },
+  report: {
+    root: path(ROOTS_DASHBOARD, '/report'),
+    customerRegister: path(ROOTS_DASHBOARD, '/report/customer-register'),
+    customerSaleProducts: path(ROOTS_DASHBOARD, '/report/customer-sale-products'),
+    purchaseHistory: path(ROOTS_DASHBOARD, '/report/purchase-history'),
+    purchaseReturnHistory: path(ROOTS_DASHBOARD, '/report/purchase-return-history'),
+    productPurchaseHistory: path(ROOTS_DASHBOARD, '/report/product-purchase-history'),
+    saleHistory: path(ROOTS_DASHBOARD, '/report/sale-history'),
+    userSaleHistory: path(ROOTS_DASHBOARD, '/report/user-sale-history'),
+    shiftSaleHistory: path(ROOTS_DASHBOARD, '/report/shift-sale-history'),
+    categorySaleHistory: path(ROOTS_DASHBOARD, '/report/category-sale-history'),
+    productSaleHistory: path(ROOTS_DASHBOARD, '/report/product-sale-history'),
+    saleHistoryCategoryProduct: path(ROOTS_DASHBOARD, '/report/sale-history-category-product'),
+    customerSaleHistory: path(ROOTS_DASHBOARD, '/report/customer-sale-history'),
+    saleSummary: path(ROOTS_DASHBOARD, '/report/sale-summary'),
+    saleReturnHistory: path(ROOTS_DASHBOARD, '/report/sale-return-history'),
+    cashStates: path(ROOTS_DASHBOARD, '/report/cash-states'),
+    productLowStock: path(ROOTS_DASHBOARD, '/report/product-low-stock'),
+
+    allStock: path(ROOTS_DASHBOARD, '/report/all-stock'),
+    stockExpiry: path(ROOTS_DASHBOARD, '/report/stock-expiry'),
+    zeroStock: path(ROOTS_DASHBOARD, '/report/zero-stock'),
+    stockAdjustment: path(ROOTS_DASHBOARD, '/report/stock-adjustment'),
+    vendorPurchaseHistory: path(ROOTS_DASHBOARD, '/report/vendor-purchase-history'),
+    cashInHand: path(ROOTS_DASHBOARD, '/report/cash-in-hand'),
+    
+  },
+  customer: {
+    root: path(ROOTS_DASHBOARD, '/customer'),
+    new: path(ROOTS_DASHBOARD, '/customer/new'),
+    edit: path(ROOTS_DASHBOARD, '/customer/edit'),
+    account: path(ROOTS_DASHBOARD, '/customer/account'),
+    message: path(ROOTS_DASHBOARD, '/customer/message'),
+    balancemessage: path(ROOTS_DASHBOARD, '/customer/balancemessage'),
+    import: path(ROOTS_DASHBOARD, '/customer/import'),
+    areas: path(ROOTS_DASHBOARD, '/customer/areas'),
   },
   user: {
     root: path(ROOTS_DASHBOARD, '/user'),

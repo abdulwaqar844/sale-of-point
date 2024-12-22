@@ -7,32 +7,32 @@ import { PATH_DASHBOARD } from '../../../../routes/paths';
 import { useSettingsContext } from '../../../../components/settings';
 import CustomBreadcrumbs from '../../../../components/custom-breadcrumbs';
 // sections
-import VendorsNewForm from './VendorsNewForm';
+import CustomerNewForm from './CustomerNewForm';
 
 // ----------------------------------------------------------------------
 
-export default function VendorsNewPage() {
+export default function CustomerNewPage() {
   const { themeStretch } = useSettingsContext();
 
   return (
     <>
       <Helmet>
-        <title>  Create Vendor | Point of Sale UI</title>
+        <title>  Create Customer | Point of Sale UI</title>
       </Helmet>
 
       <Container maxWidth={themeStretch ? false : 'lg'}>
         <CustomBreadcrumbs
-          heading="Vendor Information"
+          heading="Customer Information"
           links={[
             {
-              name: 'Vendors',
+              name: 'Customer',
               href: PATH_DASHBOARD.root,
             },
             
             
           ]}
         />
-        <VendorsNewForm />
+        <CustomerNewForm />
       </Container>
     </>
   );

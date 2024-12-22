@@ -143,7 +143,53 @@ import {
   VendorsPage,
   VendorsNewPage,
   VendorsEditForm,
+  VendorsAccount,
+
+  CustomerPage,
+  CustomerNewPage,
+  CustomerEditForm,
+  CustomerAccount,
+  CustomerSendMessage,
+  CustomerSendBalanceMessage,
+  CustomerImport,
+  CustomerAreas,
+  IncomeNew,
+  IncomeHistory,
+  IncomeTypes,
+  ExpenseNew,
+  ExpenseHistory,
+  ExpenseTypes,
+  Purchase,
+  PurchaseReturn,
+  SaleInvoice,
+  Stock,
+  // Report
+  CustomerRegister,
+  CustomerSaleProducts,
+  PurchaseHistory,
+  PurchaseReturnHistory,
+  ProductPurchaseHistory,
+  SaleHistory,
+  UserSaleHistory,
+  ShiftSaleHistory,
+  CategorySaleHistory,
+  ProductSaleHistory,
+  SaleHistoryCategoryProduct,
+  CustomerSaleHistory,
+  SaleSummary,
+  SaleReturnHistory,
+  CashStates,
+  ProductLowStock,
+
+  AllStock,
+  StockExpiry,
+  ZeroStock,
+  StockAdjustment,
+  VendorPurchaseHistory,
+  CashInHand,
+
 } from './elements';
+
 
 // ----------------------------------------------------------------------
 
@@ -202,11 +248,11 @@ export default function Router() {
       children: [
         { element: <Navigate to={PATH_AFTER_LOGIN} replace />, index: true },
         { path: 'app', element: <GeneralAppPage /> },
-
+        { path: 'sale', element: <SaleInvoice /> },
         { path: 'categories', element: <CategoryPage /> },
         { path: 'categories/new', element: <CategoryNewPage /> },
         { path: 'categories/edit', element: <CategoryEditPage /> },
-
+        {  path: 'stock', element: <Stock/>},
         { path: 'manufacturer', element: <MenufacturerPage /> },
         { path: '/dashboard/manufacturer/new', element: <MenufacturerNewPage /> },
         { path: '/dashboard/manufacturer/edit', element: <MenufacturerEditForm /> },
@@ -219,13 +265,83 @@ export default function Router() {
         { path: '/dashboard/product/group/new', element: <ProductGroupNew /> },
         { path: '/dashboard/product/group/edit', element: <ProductGroupEdit /> },
 
-        { path: 'vendors', element: <VendorsPage /> },
-        { path: '/dashboard/vendors/new', element: <VendorsNewPage /> },
-        { path: '/dashboard/vendors/edit', element: <VendorsEditForm /> },
+         { path: 'vendors', element: <VendorsPage /> },
+         { path: '/dashboard/vendors/new', element: <VendorsNewPage /> },
+         { path: '/dashboard/vendors/edit', element: <VendorsEditForm /> },
+         { path: '/dashboard/vendors/account' , element: <VendorsAccount />},
+
+         { path: 'customer', element: <CustomerPage /> },
+         { path: '/dashboard/customer/new', element: <CustomerNewPage /> },
+         { path: '/dashboard/customer/edit', element: <CustomerEditForm /> },
+         { path: '/dashboard/customer/account', element: <CustomerAccount />},
+         { path: '/dashboard/customer/message', element: <CustomerSendMessage />},
+         { path: '/dashboard/customer/balancemessage', element: <CustomerSendBalanceMessage />},
+         { path: '/dashboard/customer/import', element: <CustomerImport />},
+         {  path: '/dashboard/customer/areas', element: <CustomerAreas />},
+        
+      
 
         { path: 'analytics', element: <GeneralCategoryPage /> },
         { path: 'booking', element: <GeneralBookingPage /> },
         { path: 'file', element: <GeneralFilePage /> },
+
+        {
+          path: 'income',
+          children: [
+            { element: <Navigate to="/dashboard/income/new" replace />, index: true },
+            { path: 'new', element: <IncomeNew /> },
+            { path: 'history', element: <IncomeHistory /> },
+            { path: 'types', element: <IncomeTypes /> },
+          ],
+        },
+        {
+          path: 'expense',
+          children: [
+            { element: <Navigate to="/dashboard/expense/new" replace />, index: true },
+            { path: 'new', element: <ExpenseNew /> },
+            { path: 'history', element: <ExpenseHistory /> },
+            { path: 'types', element: <ExpenseTypes /> },
+          ],
+        },
+        {
+          path: 'purchase',
+          children: [
+            { element: <Navigate to="/dashboard/purchase/order" replace />, index: true },
+            { path: 'order', element: <Purchase /> },
+            { path: 'return', element: <PurchaseReturn /> },
+          ],
+        },
+
+        {
+          path: 'report',
+          children: [
+            { element: <Navigate to="/dashboard/report/customerRegister" replace />, index: true },
+            {  path: 'customer-register', element: <CustomerRegister /> },
+            {  path: 'customer-sale-products', element: <CustomerSaleProducts /> },
+            {  path: 'purchase-history', element: <PurchaseHistory /> },
+            {  path: 'purchase-return-history', element: <PurchaseReturnHistory /> },
+            {  path: 'product-purchase-history', element: <ProductPurchaseHistory /> },
+            {  path: 'sale-history', element: <SaleHistory /> },
+            {  path: 'user-sale-history', element: <UserSaleHistory /> },
+            {  path: 'shift-sale-history', element: <ShiftSaleHistory /> },
+            {  path: 'category-sale-history', element: <CategorySaleHistory /> },
+            {  path: 'product-sale-history', element: <ProductSaleHistory /> },
+            {  path: 'sale-history-category-product', element: <SaleHistoryCategoryProduct /> },
+            {  path: 'customer-sale-history', element: <CustomerSaleHistory /> },
+            {  path: 'sale-summary', element: <SaleSummary /> },
+            {  path: 'sale-return-history', element: <SaleReturnHistory /> },
+            {  path: 'cash-states', element: <CashStates /> },
+            {  path: 'product-low-stock', element: <ProductLowStock /> },
+
+            { path: 'all-stock', element: <AllStock />, },
+            { path: 'stock-expiry', element: <StockExpiry />, },
+            { path: 'zero-stock', element: <ZeroStock />, },
+            { path: 'stock-adjustment', element: <StockAdjustment />, },
+            { path: 'vendor-purchase-history', element: <VendorPurchaseHistory /> ,},
+            { path: 'cash-in-hand', element: <CashInHand />, },
+
+          ],
+        },
         {
           path: 'e-commerce',
           children: [

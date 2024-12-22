@@ -100,6 +100,52 @@ export const ProductGroupEdit = Loadable(lazy(()=> import ('../sections/@dashboa
 export const VendorsPage = Loadable(lazy(() => import('../pages/dashboard/VendorsPage')));
 export const VendorsNewPage = Loadable(lazy(() => import('../sections/@dashboard/general/vendors/VendorsNewPage')));
 export const VendorsEditForm = Loadable(lazy(() => import('../sections/@dashboard/general/vendors/VendorsEditForm')));
+export const VendorsAccount = Loadable(lazy(() => import('../sections/@dashboard/general/vendors/VendorsAccount')));
+// DASHBOARD: CUSTOMER
+export const CustomerPage = Loadable(lazy(() => import('../pages/dashboard/CustomerPage')));
+export const CustomerNewPage = Loadable(lazy(() => import('../sections/@dashboard/general/customers/CustomerNewPage')));
+export const CustomerEditForm = Loadable(lazy(() => import('../sections/@dashboard/general/customers/CustomerEditForm')));
+export const CustomerAccount = Loadable(lazy(() => import('../sections/@dashboard/general/customers/CustomerAccount')));
+export const CustomerSendMessage = Loadable(lazy(() => import('../sections/@dashboard/general/customers/CustomerSendMessage')));
+export const CustomerSendBalanceMessage = Loadable(lazy(() => import('../sections/@dashboard/general/customers/CustomerSendBalanceMessage')));
+export const CustomerImport = Loadable(lazy(() => import('../sections/@dashboard/general/customers/CustomerImport')));
+export const CustomerAreas = Loadable(lazy(() => import('../sections/@dashboard/general/customers/CustomerAreas')));
+// DASHBOARD: Income
+export const IncomeNew = Loadable(lazy(() => import('../sections/@dashboard/general/income/IncomeNew')));
+export const IncomeHistory = Loadable(lazy(() => import('../sections/@dashboard/general/income/IncomeHistory')));
+export const IncomeTypes = Loadable(lazy(() => import('../sections/@dashboard/general/income/IncomeTypes')));
+// DASHBOARD: Expense
+export const ExpenseNew = Loadable(lazy(() => import('../sections/@dashboard/general/expense/ExpenseNew')));
+export const ExpenseHistory = Loadable(lazy(() => import('../sections/@dashboard/general/expense/ExpenseHistory')));
+export const ExpenseTypes = Loadable(lazy(() => import('../sections/@dashboard/general/expense/ExpenseTypes')));
+
+// DASHBOARD: Purchase
+export const Purchase = Loadable(lazy(() => import('../sections/@dashboard/general/purchase/Purchase')));
+export const PurchaseReturn = Loadable(lazy(() => import('../sections/@dashboard/general/purchase/PurchaseReturn')));
+// Dashboard: Report
+export const CustomerRegister = Loadable(lazy(() => import('../sections/@dashboard/general/report/CustomerRegister') ));
+export const CustomerSaleProducts = Loadable(lazy(() => import('../sections/@dashboard/general/report/CustomerSaleProducts') ));
+export const PurchaseHistory = Loadable(lazy(() => import('../sections/@dashboard/general/report/PurchaseHistory') ));
+export const PurchaseReturnHistory = Loadable(lazy(() => import('../sections/@dashboard/general/report/PurchaseReturnHistory') ));
+export const ProductPurchaseHistory = Loadable(lazy(() => import('../sections/@dashboard/general/report/ProductPurchaseHistory') ));
+export const SaleHistory = Loadable(lazy(() => import('../sections/@dashboard/general/report/SaleHistory') ));
+export const UserSaleHistory = Loadable(lazy(() => import('../sections/@dashboard/general/report/UserSaleHistory') ));
+export const ShiftSaleHistory = Loadable(lazy(() => import('../sections/@dashboard/general/report/ShiftSaleHistory') ));
+export const CategorySaleHistory = Loadable(lazy(() => import('../sections/@dashboard/general/report/CategorySaleHistory') ));
+export const ProductSaleHistory = Loadable(lazy(() => import('../sections/@dashboard/general/report/ProductSaleHistory') ));
+export const SaleHistoryCategoryProduct = Loadable(lazy(() => import('../sections/@dashboard/general/report/SaleHistoryCategoryProduct') ));
+export const CustomerSaleHistory = Loadable(lazy(() => import('../sections/@dashboard/general/report/CustomerSaleHistory') ));
+export const SaleSummary = Loadable(lazy(() => import('../sections/@dashboard/general/report/SaleSummary') ));
+export const SaleReturnHistory = Loadable(lazy(() => import('../sections/@dashboard/general/report/SaleReturnHistory') ));
+export const CashStates = Loadable(lazy(() => import('../sections/@dashboard/general/report/CashStates') ));
+export const ProductLowStock = Loadable(lazy(() => import('../sections/@dashboard/general/report/ProductLowStock') ));
+
+export const AllStock = Loadable(lazy(() => import('../sections/@dashboard/general/report/AllStock') ));
+export const StockExpiry = Loadable(lazy(() => import('../sections/@dashboard/general/report/StockExpiry') ));
+export const ZeroStock = Loadable(lazy(() => import('../sections/@dashboard/general/report/ZeroStock') ));
+export const StockAdjustment = Loadable(lazy(() => import('../sections/@dashboard/general/report/StockAdjustment') ));
+export const VendorPurchaseHistory = Loadable(lazy(() => import('../sections/@dashboard/general/report/VendorPurchaseHistory')));
+export const CashInHand = Loadable(lazy(() => import('../sections/@dashboard/general/report/CashInHand') ));
 
 // DASHBOARD: BLOG
 export const BlogPostsPage = Loadable(lazy(() => import('../pages/dashboard/BlogPostsPage')));
@@ -114,6 +160,10 @@ export const ChatPage = Loadable(lazy(() => import('../pages/dashboard/ChatPage'
 export const MailPage = Loadable(lazy(() => import('../pages/dashboard/MailPage')));
 export const CalendarPage = Loadable(lazy(() => import('../pages/dashboard/CalendarPage')));
 export const KanbanPage = Loadable(lazy(() => import('../pages/dashboard/KanbanPage')));
+// Dashboard: Sale
+export const SaleInvoice = Loadable(lazy(() => import('../sections/@dashboard/general/sale/Sale')));
+// Dashboard: Stock
+export const Stock = Loadable(lazy(() => import('../sections/@dashboard/general/stock/Stock')));
 
 // TEST RENDER PAGE BY ROLE
 export const PermissionDeniedPage = Loadable(
